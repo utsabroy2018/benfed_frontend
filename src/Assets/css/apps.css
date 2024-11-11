@@ -162,7 +162,7 @@ img {
 	color: #828183; border: none; width: 100%; border-radius: 8px; height: 32px;}
 
 
-.bannerSliderMain{width:100%; margin:0; position:relative; 
+.bannerSliderMain{width:100%; margin:0; position:relative; overflow: hidden;
 /*	border-bottom: #343f99 solid 2px;*/
 }
 .bannerSliderMain .bannerSlide{background:url(../images/banner.png) no-repeat center center;
@@ -179,7 +179,7 @@ img {
 	background-size: inherit;
 }
 
-.bannerSliderMain .slick-prev.slick-arrow {
+.bannerSliderMain .slick-slider .slick-prev.slick-arrow {
   width: 68px;
   height: 67px;
   color: #fff;
@@ -197,7 +197,7 @@ img {
   z-index: 1;
 }
 
-.bannerSliderMain .slick-next.slick-arrow {
+.bannerSliderMain .slick-slider .slick-next.slick-arrow {
   width: 68px;
   height: 67px;
   color: #fff;
