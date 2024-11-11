@@ -431,8 +431,10 @@ img {
 
 .slide_text_sec_ben{width: 100%; padding-bottom: 50px;}
 .slide_text_sec_ben_sub{width: 100%;}
-.slide_text_list{display: flex;}
+.slide_text_list{display: flex !important;}
 .slide_img img{border-radius: 30px; overflow: hidden;}
+
+
 
 .slide_txt{background: #e6b12e; padding: 45px 15px; height: 100%; position: relative;}
 .slide_txt h2{font-size: 30px; color: #fff; font-weight: 600; padding: 0; margin: 0 0 12px 0;}
@@ -444,11 +446,19 @@ img {
 	float: right; font-size: 26px; display: flex; align-items: center;}
 .slide_txt .button_text a i{margin: 0 auto;}
 
+.slide_txt .button_text button.prev-button{background: #fff; color: #000; border-radius: 50px; width: 37px; height: 37px; 
+	float: left; font-size: 26px; display: flex; align-items: center; border: none;}
+.slide_txt .button_text button.next-button{background: #fff; color: #000; border-radius: 50px; width: 37px; height: 37px; 
+	float: right; font-size: 26px; display: flex; align-items: center; border: none;}
+.slide_txt .button_text button i{margin: 0 auto;}
+
+
 
 .award_sec_ben{background: #dcdbdb; width: 100%;}
 .award_sec_ben_left_img{background: url("../images/blue_left.png") no-repeat left top}
 .award_sec_ben_left_img_sub{background: url("../images/yelloy_right.png") no-repeat right bottom; min-height: 325px;
 	padding: 25px 0 30px 0;}
+
 .award_sec_ben_left_img_sub h2{font-size: 24px; color: #000; font-weight: 400; text-align: center; padding: 0 15px;
 	margin: 0 0 26px 0;}
 

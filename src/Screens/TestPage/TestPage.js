@@ -1,14 +1,84 @@
-import React from 'react'
+import React, { useRef } from 'react'
 import { PieChart } from '@mui/x-charts/PieChart';
+import Slider from 'react-slick';
+
+
 
 
 
 
 function TestPage() {
+
+  const sliderRef = useRef(null); 
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+  };
+
+  
   return (
-    <div>
+    <>
 
 test
+
+{/* <button onClick={() => sliderRef.current.slickPrev()}>Previous</button> */}
+{/* <Slider {...settings}>
+      <div>
+        <h3>1</h3>
+      </div>
+      <div>
+        <h3>2</h3>
+      </div>
+      <div>
+        <h3>3</h3>
+      </div>
+      <div>
+        <h3>4</h3>
+      </div>
+      <div>
+        <h3>5</h3>
+      </div>
+      <div>
+        <h3>6</h3>
+      </div>
+    </Slider> */}
+
+<div className="slider-container">
+      <button className="prev-button" onClick={() => sliderRef.current.slickPrev()}>
+        Prev
+      </button>
+
+      <Slider ref={sliderRef} {...settings}>
+        <div>
+          <h3>1</h3>
+        </div>
+        <div>
+          <h3>2</h3>
+        </div>
+        <div>
+          <h3>3</h3>
+        </div>
+        <div>
+          <h3>4</h3>
+        </div>
+        <div>
+          <h3>5</h3>
+        </div>
+        <div>
+          <h3>6</h3>
+        </div>
+      </Slider>
+      <br/> <br/><br/> <br/><br/> <br/>
+      <button className="next-button" onClick={() => sliderRef.current.slickNext()}>
+        Next
+      </button>
+    </div>
+
+<br/> <br/>
+{/* <Slider1 /> */}
 
 <PieChart
       series={[
@@ -32,7 +102,7 @@ test
         width={'24em'}
         //menu={'left'}
         /> */}
-    </div>
+    </>
   )
 }
 

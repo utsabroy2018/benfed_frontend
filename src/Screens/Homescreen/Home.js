@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import BannerSlider from '../../Components/BannerSlider'
 import Anouncement from '../../Components/Anouncement'
 import StatisticBox from '../../Components/StatisticBox'
@@ -36,6 +36,7 @@ import award_c from "../../Assets/images/award_c.png";
 import HomeBlueCounter from '../../Components/HomeBlueCounter';
 import TabContentHome_Network from '../../Components/TabContentHome_Network';
 import TabContentHome_Graph from '../../Components/TabContentHome_Graph';
+import Slider from 'react-slick';
 
 
 function Home() {
@@ -46,17 +47,15 @@ function Home() {
 	const [loading_statis, setLoading_statis] = useState(true);
 	const [getCounterData, setCounterData] = useState('');
 
-// const pageContentData = {
-//     pageTitle: 'Notifications & Orders',
-//     pageContent: getPageData?.body
-//     }
 
-
-	// const [getOngoingData, setOngoingData] = useState('');
-	// const [getCompletData, setCompletData] = useState('');
-	// const [getDueData, setDueData] = useState('');
-
-	// const mapTxtWordCount= 5;
+	const sliderRef = useRef(null); 
+	var settings = {
+	dots: false,
+	infinite: true,
+	speed: 500,
+	slidesToShow: 1,
+	slidesToScroll: 1,
+	};
 
 
 	const bottomThreeBox = [
@@ -313,20 +312,38 @@ function Home() {
 <div class="slide_text_sec_ben">
 	<div class="wrapper">
 	<div class="slide_text_sec_ben_sub">
+	<Slider ref={sliderRef} {...settings}>
 	<div class="slide_text_list">
 		<div class="col-sm-9 slide_img float-left"><img src={footer_slide} alt=""/></div>
 		<div class="col-sm-3 float-left">
 		<div class="slide_txt">
-		<h2>Title</h2>	
+		<h2>Title 1</h2>	
 		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
 			
 		<div class="button_text">
-		<a href="" class="lft_btn"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-		<a href="" class="riht_btn"><i class="fa fa-angle-right" aria-hidden="true"></i></a>
+		<button className="prev-button" onClick={() => sliderRef.current.slickPrev()}><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+		<button className="next-button" onClick={() => sliderRef.current.slickNext()}><i class="fa fa-angle-right" aria-hidden="true"></i></button>
+		</div>
+		</div>
+		</div>
+	</div>
+	<div class="slide_text_list">
+		<div class="col-sm-9 slide_img float-left"><img src={footer_slide} alt=""/></div>
+		<div class="col-sm-3 float-left">
+		<div class="slide_txt">
+		<h2>Title 2</h2>	
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+			
+		<div class="button_text">
+		<button className="prev-button" onClick={() => sliderRef.current.slickPrev()}><i class="fa fa-angle-left" aria-hidden="true"></i></button>
+		<button className="next-button" onClick={() => sliderRef.current.slickNext()}><i class="fa fa-angle-right" aria-hidden="true"></i></button>
 		</div>
 		</div>
 		</div>
 	</div>	
+	</Slider>
+
+	
 	</div>
   </div>
 </div>
