@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { AppstoreOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
+import { AppstoreOutlined, DownCircleOutlined, DownOutlined, LeftOutlined, MailOutlined, SettingOutlined } from '@ant-design/icons';
 import  { MenuProps } from 'antd';
 import { Menu } from 'antd';
 import { Link } from 'react-router-dom';
@@ -20,28 +20,39 @@ const items = [
   {
     label: 'About Us',
     key: '/about',
+    icon: <DownCircleOutlined />,
+    children: [
+    { label: 'About Us', key: 'about' },
+    { label: 'Who We Are', key: 'who-we-are' },
+    { label: 'Our Mission', key: 'our-mission' },
+    { label: 'Organizational Structure', key: 'organizational-structure' },
+    { label: 'Members', key: 'members' },
     
-    // icon: <SettingOutlined />,
-    // children: [
-    // { label: 'About Us', key: '/about'},
-    // { label: 'Option 1', key: 'setting_1:1'},
-    // { label: 'Option 2', key: 'setting_1:2' }
-    // ],
+    ]
   },
   {
-    label: 'Services',
-    key: '/services',
+    label: 'Department',
+    key: 'department',
+    icon: <DownCircleOutlined />,
+    children: [
+    { label: 'Department', key: 'department' },
+    { label: 'Marketing Procurement', key: 'marketing-procurement' },
+    { label: 'Fertilizer', key: 'fertilizer' },
+    { label: 'Inputs', key: 'inputs' },
+    { label: 'Engineering', key: 'engineering' },
+    ]
   },
-  {
-    label: 'Projects',
-    key: '/projects',
-    // icon: <SettingOutlined />,
-    // children: [
-    // { label: 'Important Announcement', key: '/importantannouncement' },  
-    // { label: 'Option 1', key: 'setting_3:1' },
-    // { label: 'Option 1', key: 'setting_3:2' }
-    // ],
-  },
+ 
+  // {
+  //   label: 'Projects',
+  //   key: '/projects',
+  //   // icon: <LeftOutlined />,
+  //   // children: [
+  //   // { label: 'Important Announcement', key: '/importantannouncement' },  
+  //   // { label: 'Option 1', key: 'setting_3:1' },
+  //   // { label: 'Option 1', key: 'setting_3:2' }
+  //   // ],
+  // },
   {
     label: 'Tenders',
     key: '/tenders',
@@ -52,10 +63,6 @@ const items = [
     // ],
   },
   {
-    label: 'Circulars',
-    key: '/circulars',
-  },
-  {
     label: 'RTI',
     key: '/rti',
   },
@@ -63,15 +70,15 @@ const items = [
     label: 'Download Forms',
     key: '/downloads-forms',
   },
-  {
-    label: 'FAQ ',
-    key: '/faq',
-    // icon: <SettingOutlined />,
-    // children: [
-    // { label: 'Option 1', key: 'setting_5:1' },
-    // { label: 'Option 1', key: 'setting_5:2' }
-    // ],
-  },
+  // {
+  //   label: 'FAQ ',
+  //   key: '/faq',
+  //   // icon: <SettingOutlined />,
+  //   // children: [
+  //   // { label: 'Option 1', key: 'setting_5:1' },
+  //   // { label: 'Option 1', key: 'setting_5:2' }
+  //   // ],
+  // },
   {
     label: 'Important Links',
     key: '/importantLinks',

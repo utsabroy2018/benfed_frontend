@@ -35,7 +35,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6, ul, ol, li, input, select, textarea {
-  padding: 0; font-family: "Open Sans", sans-serif;
+  padding: 0; font-family: "Open Sans", sans-serif !important;
   margin: 0;
 }
 
@@ -142,7 +142,7 @@ img {
 
 .navArea{display: flex; padding: 0 15px; align-items: center;}
 .topNavmain{background: #dc9f0b ; width: 100%; padding: 10px 0;}
-.topNavmain ul{margin: 0; padding: 0; list-style-type: none;}
+.topNavmain ul{margin: 0; padding: 0; list-style-type: none; width: 100%;}
 .topNavmain ul li:first-child{padding-left: 0;}
 .topNavmain ul li{display: inline-block; padding: 0 15px; line-height: 18px;}
 .topNavmain ul li:hover{text-decoration: none;}
@@ -161,6 +161,11 @@ img {
 .topNavmain .search_sec input[type="search"]{background: #fff; padding: 5px 10px; font-size: 14px; 
 	color: #828183; border: none; width: 100%; border-radius: 8px; height: 32px;}
 
+  /* :where(.css-dev-only-do-not-override-ywd3mv).ant-menu-submenu-popup .ant-menu-vertical.ant-menu-sub:not */
+
+.ant-menu-sub{background-color: #B38006 !important;}
+.ant-menu-sub li:hover{background-color: #DC9F0B !important;}
+.ant-menu-sub li.ant-menu-item-selected{background-color: #DC9F0B !important;}
 
 .bannerSliderMain{width:100%; margin:0; position:relative; overflow: hidden;
 /*	border-bottom: #343f99 solid 2px;*/

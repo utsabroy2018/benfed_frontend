@@ -62,6 +62,8 @@ useEffect(()=>{
     <li><Link to="/society-corner">Society's Corner</Link></li> 
     <li><Link to="/events">Events</Link></li> 
     <li><Link to="/notificationsorders">Notice & Tenders</Link></li> 
+    <li><Link to="/faq">FAQ</Link></li> 
+    <li><Link to="/circulars">Circulars</Link></li> 
     <li><Link to="/gallery">Gallery</Link></li> 
     <li><Link to="/contact-us">Contact Us</Link></li> 
     </ul>
@@ -90,7 +92,7 @@ useEffect(()=>{
     </div>
 </div>
 	
-<div class="footerWhite">Copyright © 2024 Co-operative Election Commission, West Bengal. All rights reserved.</div>
+<div class="footerWhite">Copyright © 2024 The W.B.S Co-Operative Marketing Federation Ltd (Benfed). All rights reserved.</div>
 	
 <a href="#" class="scroll_top"> <img src={`${scroll_top}`} alt=""/> </a>
     </>

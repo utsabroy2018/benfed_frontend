@@ -37,7 +37,14 @@ import Department from './Screens/Department/Department';
 import PublicationReports from './Screens/Publication & Reports/PublicationReports';
 import SocietyCorner from './Screens/Society\'s Corner/SocietyCorner';
 import Events from './Screens/Events/Events';
-
+import MarketingProcurement from './Screens/MarketingProcurement/MarketingProcurement';
+import Fertilizer from './Screens/Fertilizer/Fertilizer';
+import Inputs from './Screens/Inputs/Inputs';
+import Engineering from './Screens/Engineering/Engineering';
+import WhoWeAre from './Screens/WhoWeAre/WhoWeAre';
+import OurMission from './Screens/OurMission/OurMission';
+import OrganizationalStructure from './Screens/OrganizationalStructure/OrganizationalStructure';
+import Members from './Screens/Members/Members';
 
 
 
@@ -122,6 +129,38 @@ const router = createBrowserRouter([
       {
         path:"events",
         element:<Events/>
+      },
+      {
+        path:"marketing-procurement",
+        element:<MarketingProcurement/>
+      },
+      {
+        path:"fertilizer",
+        element:<Fertilizer/>
+      },
+      {
+        path:"inputs",
+        element:<Inputs/>
+      },
+      {
+        path:"engineering",
+        element:<Engineering/>
+      },
+      {
+        path:"who-we-are",
+        element:<WhoWeAre/>
+      },
+      {
+        path:"our-mission",
+        element:<OurMission/>
+      },
+      {
+        path:"organizational-structure",
+        element:<OrganizationalStructure/>
+      },
+      {
+        path:"members",
+        element:<Members/>
       }
 
     ]
