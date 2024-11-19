@@ -115,8 +115,9 @@ img {
 .rightNav ul li a:hover{color: #0e783d;}
 
 
-.logosection{display: flex; padding:12px 15px; align-items: center;}
+.logosection{display: flex; padding:8px 15px; align-items: center;}
 .logoArea{margin: 0 auto 0 0;}
+.logoArea a img{max-width: 70px; width: 100%;}
 
 .language{margin: 0 0 0 auto;}
 

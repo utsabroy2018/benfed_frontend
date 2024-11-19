@@ -119,11 +119,11 @@ const defaiultFontSize = () => {
     <Link to="/"><img src={`${logo}`} alt=""/></Link>
     </div>
 
-    <div class="login">
+    {/* <div class="login">
     <ul>
     <li><Link to="#" target="_blank">Login</Link></li>	
     </ul>
-    </div>
+    </div> */}
     </div>
 
     <div class="topNavmain">
