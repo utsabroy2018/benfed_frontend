@@ -119,6 +119,28 @@ const defaiultFontSize = () => {
     <Link to="/"><img src={`${logo}`} alt=""/></Link>
     </div>
 
+    <div className='top_right_sec'>
+
+    {/* <div class="right_Nav_sec_2">
+    <ul>
+    <li><a href="#main_info_content">Skip to Main Content</a></li> 
+    <li>
+    <a href="javascript:void(0)" onClick={() => decreaseFontSize()}><img src={`${acce_a}`} alt=""/></a> 
+    <a href="javascript:void(0)" onClick={() => defaiultFontSize()}><img src={`${acce_b}`} alt=""/></a>
+    <a href="javascript:void(0)" onClick={() => increaseFontSize()}><img src={`${acce_c}`} alt=""/></a>
+    </li>	
+    </ul>
+    </div> */}
+
+    <div class="right_Nav_sec_1">
+    <div class="search_sec"><input type="search" placeholder="Search" /> 
+		<i class="fa fa-search serach_cus" aria-hidden="true"></i>
+</div>
+    </div>
+
+    
+
+    </div>
     {/* <div class="login">
     <ul>
     <li><Link to="#" target="_blank">Login</Link></li>	
@@ -130,9 +152,9 @@ const defaiultFontSize = () => {
 	<div class="wrapper navArea">
 	<TopMenu/>
 		
-	<div class="search_sec"><input type="search" placeholder="Search" /> 
+	{/* <div class="search_sec"><input type="search" placeholder="Search" /> 
 		<i class="fa fa-search serach_cus" aria-hidden="true"></i>
-</div>
+</div> */}
 	</div>	
 </div>
 
