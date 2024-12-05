@@ -35,7 +35,7 @@ const items = [
     key: 'department',
     icon: <DownCircleOutlined />,
     children: [
-    { label: 'Department', key: 'department' },
+    // { label: 'Department', key: 'department' },
     { label: 'Marketing Procurement', key: 'marketing-procurement' },
     { label: 'Fertilizer', key: 'fertilizer' },
     { label: 'Inputs', key: 'inputs' },
@@ -54,7 +54,7 @@ const items = [
   //   // ],
   // },
   {
-    label: 'Tenders',
+    label: 'Notice / Tender',
     key: '/tenders',
     // icon: <SettingOutlined />,
     // children: [
@@ -82,6 +82,10 @@ const items = [
   {
     label: 'Important Links',
     key: '/importantLinks',
+  },
+  {
+    label: 'Available Product',
+    key: '/available-product',
   },
   // {
   //   label: 'Notifications & Orders',

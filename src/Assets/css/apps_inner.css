@@ -18,6 +18,7 @@
   text-transform: capitalize;
 }
 
+
 .left_sec h3 {
   font-size: 16px;
   color: #000;
@@ -34,6 +35,18 @@
   border-bottom: #000 solid 1px;
   position: relative;
   margin-bottom: 25px; display: flex; align-items: center;
+}
+
+.left_sec_table h1 {
+  font-size: 20px;
+  color: #000;
+  font-weight: 500;
+  padding-bottom: 10px;
+  border-bottom: #000 solid 1px;
+  position: relative;
+  margin-bottom: 25px;
+  display: flex;
+  text-transform: capitalize;
 }
 
 
@@ -68,6 +81,16 @@
   border-radius: 0;
 }
 
+.inner_page_Sec .left_sec ul li a{
+  font-size: 14px;
+  color: #dc9f0b;
+}
+
+.inner_page_Sec .left_sec ul li a:hover{
+  font-size: 14px;
+  color: #dc9f0b;
+  text-decoration: underline;;
+}
 
 
 .left_sec h1 button.pdfDownload{margin: 0 0 0 auto;
@@ -233,6 +256,45 @@ button.viewDetails:focus{outline: none; border: none;}
   }
 
   .scroll_top{position: fixed; right: 25px; bottom: 25px;}
+
+  .about_img_last{width: 780px;}
+
+
+  .scroll-to-top-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    pointer-events: none; /* Prevent clicking when invisible */
+  }
+  
+  .scroll-to-top-button.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto; /* Enable clicking when visible */
+  }
+
+.scroll_sec_ben_home .ant-table-container table th{font-size: 11px; padding: 5px; font-weight: 700;}
+.scroll_sec_ben_home .ant-table-container table tbody tr td{font-size: 11px; padding: 5px; background: none !important;}
+.scroll_sec_ben_home .ant-table-container table th .ant-table-column-sorter{display: none;}
+.scroll_sec_ben_home .ant-table-container table tbody tr:nth-child(odd){background: #f3db9d;}
+.scroll_sec_ben_home .ant-table-container table tbody tr:nth-child(even){background: #E6B12E;}
+
+.scroll_sec_ben_home .search_district{display: none;}
+
+.scroll_sec_ben_home .ant-table-wrapper{background: none;}
+
+.search_district{display: flex; margin-bottom: 15px;}
+.search_district label{padding-right: 10px;}
+.search_district input{width: 300px;
+  background: #f0f0f0;
+  height: 38px;
+  border: #a2a2a2 solid 1px;}
 
 /* =================================== Inner Page Style End ======================================= */
 

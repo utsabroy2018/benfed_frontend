@@ -201,7 +201,7 @@ function DownloadPage() {
 
     <div class="wrapper">
     <div class="inner_page_Sec">
-    <div class="col-sm-8 float-left left_sec searchPageTop">
+    <div class="col-sm-8 float-left left_sec_table searchPageTop">
     
     {loading ?(
       <Loader align = {'center'} gap = {'middle'} size = {'large'} />

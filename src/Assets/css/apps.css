@@ -279,7 +279,7 @@ img {
   margin: 0 5px;}
 
 .welcomeSec{padding-bottom: 50px; padding-top: 50px; width: 100%; display: inline-block;}
-.welcomeSecLeft{width: 100%; max-width: 65%; float: left; padding: 0 15px;}
+.welcomeSecLeft{width: 100%; max-width: 60%; float: left; padding: 0 15px;}
 .welcomeSecLeft h1{color: #131417; font-weight: 100; font-size: 48px; margin: 0 0 25px 0; padding: 0;}
 .welcomeSecLeft h1 span{color: #e6a802; font-weight: 900;}
 .welcomeSecLeft p{color: #393939; line-height: 26px; margin-bottom: 24px;}
@@ -340,7 +340,7 @@ img {
 
 
 
-.welcomeSecRight{width: 100%; max-width: 35%; float: left; padding: 0 15px;}
+.welcomeSecRight{width: 100%; max-width: 40%; float: left; padding: 0 15px;}
 .scroll_sec_ben{background: #f7f6f5; width: 100%; border-left: #e6a802 solid 6px; padding:12px 10px;}
 .scroll_sec_ben h2{font-size: 16px; color: #fff; font-weight: 700; padding-bottom: 8px; border-bottom: #fff solid 1px;
 	margin-bottom: 15px;}
@@ -462,7 +462,7 @@ img {
   font: normal normal normal 22px/1 FontAwesome;
   position: absolute; left: 0; top: 0px;}
 */
-.event_scroll_ben ul li h3{font-size: 15px; color: #fff; font-weight: 600; padding-bottom: 8px; margin-bottom: 0;}
+.event_scroll_ben ul li h3{font-size: 15px; color: #fff; font-weight: 500; padding-bottom: 8px; margin-bottom: 0;}
 
 .event_ben a{color: #000000; font-size: 13px; background: #fff; padding: 4px 10px; font-weight: 600;
   margin-top: 10px; display: inline-block; line-height: 18px;}

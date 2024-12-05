@@ -70,7 +70,7 @@ useEffect(()=>{
     <ul>
     {getImportantLinks.map(item=>
 
-    <li><Link to={item.links} target="_blank"> <i class="fa fa-angle-right" aria-hidden="true"></i>  {item.title}</Link> </li>
+    <li><Link to={item.links} target="_blank"> {item.title}</Link> </li>
 
     )}
     </ul>

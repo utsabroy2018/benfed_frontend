@@ -14,7 +14,7 @@ function RightSidebarGlobal() {
         {/* <SearchBox/> */}
 
         <div className="scroll_sec_ben">
-			<h2>Announcement</h2>
+			<h2>Notice / Tender</h2>
             <div className="listNotice">
 		    <div className="noticeScrollMainSub">
 			<marquee className="marq" height="350px" direction="up" scrollamount="4" loop="">

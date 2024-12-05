@@ -199,7 +199,11 @@ function TendersPage() {
     <div class="inner_page_Sec">
     <div class="col-sm-8 float-left left_sec searchPageTop">
 
-    {loading ?(
+    <h1>Notice / Tender</h1>
+
+    <p>Coming Soon</p>
+
+    {/* {loading ?(
       <Loader align = {'center'} gap = {'middle'} size = {'large'} />
     ):(
       <>
@@ -208,7 +212,7 @@ function TendersPage() {
         x: 'max-content',
       }} />
       </>
-    )}
+    )} */}
 
 
     

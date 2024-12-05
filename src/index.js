@@ -45,6 +45,7 @@ import WhoWeAre from './Screens/WhoWeAre/WhoWeAre';
 import OurMission from './Screens/OurMission/OurMission';
 import OrganizationalStructure from './Screens/OrganizationalStructure/OrganizationalStructure';
 import Members from './Screens/Members/Members';
+import AvailableProductPage from './Screens/AvailableProductPage/AvailableProductPage';
 
 
 
@@ -161,6 +162,10 @@ const router = createBrowserRouter([
       {
         path:"members",
         element:<Members/>
+      },
+      {
+        path:"available-product",
+        element:<AvailableProductPage/>
       }
 
     ]

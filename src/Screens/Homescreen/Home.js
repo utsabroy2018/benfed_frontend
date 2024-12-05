@@ -37,6 +37,8 @@ import HomeBlueCounter from '../../Components/HomeBlueCounter';
 import TabContentHome_Network from '../../Components/TabContentHome_Network';
 import TabContentHome_Graph from '../../Components/TabContentHome_Graph';
 import Slider from 'react-slick';
+import TestPage from '../TestPage/TestPage';
+import AvailableProduct from '../../Components/AvailableProduct';
 
 
 function Home() {
@@ -46,6 +48,7 @@ function Home() {
     const [loading, setLoading] = useState(true);
 	const [loading_statis, setLoading_statis] = useState(true);
 	const [getCounterData, setCounterData] = useState('');
+	const [getAvailablePro, setAvailablePro] = useState([]);
 
 
 	const sliderRef = useRef(null); 
@@ -63,19 +66,19 @@ function Home() {
 			title: 'Marketing Procurement',
 			description: 'The marketing division of BENFED is mainly engaged in procurement of paddy from different farmers of the state of West Bengal through various societies enlisted with BENFED.',
 			image: img_ben,
-			pageLink: '',
+			pageLink: '/marketing-procurement',
 		},
 		{
 			title: 'Engineering',
 			description: 'The Engineering Division of BENFED renders technical consultancy in execution of engineering projects sanctioned under different Govt. Schemes like RKVY, RIDF, State Plan, NCDC etc.',
 			image: img_2_ben,
-			pageLink: '',
+			pageLink: '/engineering',
 		},
 		{
 			title: 'Fertilizer',
 			description: 'This apex Marketing Society plays a pivotal role in supply and distribution of different chemical fertilizers at the lowest market price throughout the state of West Bengal.',
 			image: img_3_ben,
-			pageLink: '',
+			pageLink: '/fertilizer',
 		}
 	]
 
@@ -162,7 +165,43 @@ function Home() {
 			setLoading(false);
 
 			} else {
-			// setCounterData([])
+			setCounterData([])
+			// pageDataCheck = res.data.status;
+			}
+	
+			}
+	
+		}) 
+	
+		}
+
+	const fetchAvailablePro = ()=>{
+		axios.post(`${BASE_BENFED_URL}/f_stock_api`,
+		// axios.post(`https://benfed.in/benfed_godown/index.php/api/f_getvendor`,	
+		{
+			auth_key:"xxxxx",
+		}
+		// ,
+		// {
+		//     headers: {
+		//         Authorization: loginData.token,
+		//     },
+		// }
+		).then(res => {
+	
+			
+			
+
+			if(res.status == '200'){
+
+			console.log(res.data.value, 'dddddddddgggdddd');
+			setAvailablePro(res?.data?.value[0])
+			if(res.data.suc > 0){
+			// set here
+			setLoading(false);
+
+			} else {
+			setAvailablePro([])
 			// pageDataCheck = res.data.status;
 			}
 	
@@ -178,6 +217,7 @@ function Home() {
 	useEffect(()=>{
 	fetchGallerydata();
 	fetchCounterData();
+	fetchAvailablePro();
 	},[])
 
 
@@ -212,7 +252,11 @@ function Home() {
 		
 		<div className="scroll_sec_ben_home">
 			<h2><i className="fa fa-cube" aria-hidden="true"></i>  Available Product  </h2>
-			<img src={available} alt=""/>
+
+			<AvailableProduct rowCounter= {5} pagination= {false} searchShow= {false}/>
+			<Link to="/available-product">View All</Link>
+			{/* <img src={available} alt=""/> */}
+
 			{/* <br/><br/>
 			<h2><i className="fa fa-gavel" aria-hidden="true"></i> Announcement</h2>
 			<Anouncement/>
@@ -249,36 +293,99 @@ function Home() {
 			<ul>
 			<li>
 			<h3>MIC, Cooperation, Govt. of West Bengal visited BENFED</h3>
-			<div class="img_box_main">
+			{/* <div class="img_box_main">
 			<div class="img_box"><img src={img_ben_a} alt=""/></div>	
 			<div class="img_box_content">
-			<p>Shri H. A. Safwi, Hon’ble Minister-In-Charge, Department of Co-operation & Inland Water Transport, Govt. of West Bengal paid a visit to BENFED Head Office on 20th July, 2012 to inaugurate “Conference on Annual Business Review”.</p>	
+			<p>Shri H. A. Safwi, Hon’ble Minister-In-Charge, Department of Co-operation & Inland Water Transport, Govt. of West Bengal paid a visit to BENFED Head Office 
+				on 20th July, 2012 to inaugurate “Conference on Annual Business Review”.</p>	
 			</div>	
-			</div>
+			</div> */}
 			</li>
 				
 			<li>
 			<h3>MIC, Cooperation, Govt. of West Bengal visited BENFED</h3>
-			<div class="img_box_main">
+			{/* <div class="img_box_main">
 			<div class="img_box"><img src={img_ben_b} alt=""/></div>	
 			<div class="img_box_content">
 			<p>It was indeed a pleasure for BENFED management & staffs to welcome, Shri Arup Roy, Hon’ble Minister in charge, Department of Co-operation, Govt of West Bengal on 16th February, 2017....</p>	
 			</div>	
-			</div>
+			</div> */}
 			</li>
 				
 			<li>
 			<h3>59th Anniversary Celebration</h3>
-			<div class="img_box_main">
+			{/* <div class="img_box_main">
 			<div class="img_box"><img src={img_ben_c} alt=""/></div>	
 			<div class="img_box_content">
 			<p>There is something special about the day; the birds chirping in the wee hours of the morning had a musical note. The sun possibly was beaming with golden rays which didn’t have a scorching effect during the day sailing through.</p>	
 			</div>	
-			</div>
+			</div> */}
+			</li>
+
+			<li>
+			<h3>MIC, Cooperation, Govt. of West Bengal visited BENFED</h3>
+			{/* <div class="img_box_main">
+			<div class="img_box"><img src={img_ben_a} alt=""/></div>	
+			<div class="img_box_content">
+			<p>Shri H. A. Safwi, Hon’ble Minister-In-Charge, Department of Co-operation & Inland Water Transport, Govt. of West Bengal paid a visit to BENFED Head Office 
+				on 20th July, 2012 to inaugurate “Conference on Annual Business Review”.</p>	
+			</div>	
+			</div> */}
+			</li>
+				
+			<li>
+			<h3>MIC, Cooperation, Govt. of West Bengal visited BENFED</h3>
+			{/* <div class="img_box_main">
+			<div class="img_box"><img src={img_ben_b} alt=""/></div>	
+			<div class="img_box_content">
+			<p>It was indeed a pleasure for BENFED management & staffs to welcome, Shri Arup Roy, Hon’ble Minister in charge, Department of Co-operation, Govt of West Bengal on 16th February, 2017....</p>	
+			</div>	
+			</div> */}
+			</li>
+				
+			<li>
+			<h3>59th Anniversary Celebration</h3>
+			{/* <div class="img_box_main">
+			<div class="img_box"><img src={img_ben_c} alt=""/></div>	
+			<div class="img_box_content">
+			<p>There is something special about the day; the birds chirping in the wee hours of the morning had a musical note. The sun possibly was beaming with golden rays which didn’t have a scorching effect during the day sailing through.</p>	
+			</div>	
+			</div> */}
+			</li>
+
+			<li>
+			<h3>MIC, Cooperation, Govt. of West Bengal visited BENFED</h3>
+			{/* <div class="img_box_main">
+			<div class="img_box"><img src={img_ben_a} alt=""/></div>	
+			<div class="img_box_content">
+			<p>Shri H. A. Safwi, Hon’ble Minister-In-Charge, Department of Co-operation & Inland Water Transport, Govt. of West Bengal paid a visit to BENFED Head Office 
+				on 20th July, 2012 to inaugurate “Conference on Annual Business Review”.</p>	
+			</div>	
+			</div> */}
+			</li>
+				
+			<li>
+			<h3>MIC, Cooperation, Govt. of West Bengal visited BENFED</h3>
+			{/* <div class="img_box_main">
+			<div class="img_box"><img src={img_ben_b} alt=""/></div>	
+			<div class="img_box_content">
+			<p>It was indeed a pleasure for BENFED management & staffs to welcome, Shri Arup Roy, Hon’ble Minister in charge, Department of Co-operation, Govt of West Bengal on 16th February, 2017....</p>	
+			</div>	
+			</div> */}
+			</li>
+				
+			<li>
+			<h3>59th Anniversary Celebration</h3>
+			{/* <div class="img_box_main">
+			<div class="img_box"><img src={img_ben_c} alt=""/></div>	
+			<div class="img_box_content">
+			<p>There is something special about the day; the birds chirping in the wee hours of the morning had a musical note. The sun possibly was beaming with golden rays which didn’t have a scorching effect during the day sailing through.</p>	
+			</div>	
+			</div> */}
 			</li>
 			
 			</ul>
-			<Link to="/notificationsorders">View All</Link>
+			<Link to="/tenders">View All</Link>
 		</div>
 	</div>
 	
@@ -317,8 +424,8 @@ function Home() {
 		<div class="col-sm-9 slide_img float-left"><img src={footer_slide} alt=""/></div>
 		<div class="col-sm-3 float-left">
 		<div class="slide_txt">
-		<h2>Title 1</h2>	
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+		<h2>MIC, Cooperation, Govt. of West Bengal visited BENFED</h2>	
+		<p>Shri H. A. Safwi, Hon’ble Minister-In-Charge, Department of Co-operation & Inland Water Transport, Govt. of West Bengal paid a visit to BENFED Head Office on 20th July, 2012 to inaugurate “Conference on Annual Business Review”.</p>
 			
 		<div class="button_text">
 		<button className="prev-button" onClick={() => sliderRef.current.slickPrev()}><i class="fa fa-angle-left" aria-hidden="true"></i></button>
@@ -331,8 +438,8 @@ function Home() {
 		<div class="col-sm-9 slide_img float-left"><img src={footer_slide} alt=""/></div>
 		<div class="col-sm-3 float-left">
 		<div class="slide_txt">
-		<h2>Title 2</h2>	
-		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan lacus vel facilisis. Lorem ipsum dolor sit amet, consectetur adipiscing elit...</p>
+		<h2>MIC, Cooperation, Govt. of West Bengal visited BENFED</h2>	
+		<p>It was indeed a pleasure for BENFED management & staffs to welcome, Shri Arup Roy, Hon’ble Minister in charge, Department of Co-operation, Govt of West Bengal on 16th February, 2017....</p>
 			
 		<div class="button_text">
 		<button className="prev-button" onClick={() => sliderRef.current.slickPrev()}><i class="fa fa-angle-left" aria-hidden="true"></i></button>
