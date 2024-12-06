@@ -1,174 +1,123 @@
-import React, { useEffect, useState } from 'react';
-import { Table } from 'antd';
-import axios from 'axios';
-import { BASE_BENFED_URL } from '../../routes/config';
-import Loader from '../../Components/Loader';
+import React, { useState } from "react";
+import Map, { Marker, Popup } from "react-map-gl";
+import "mapbox-gl/dist/mapbox-gl.css";
+import { Tabs } from "antd";
 
+const MAPBOX_TOKEN = "pk.eyJ1IjoidXRzYWIyMDIwIiwiYSI6ImNtMTdvajcyYTB4cXoya3I0YWp3bmE2aGcifQ.ed_uttIpJVLQhDWfj7cryw"; // Replace with your Mapbox token
 
+const branchLocations = [
+  { id: 1, name: "<strong>Branch 1 Laser Battle IPOH</strong><br/>IPOH Parade<br/>Jalan Sultan, Abdul Jalil<br/>Ipoh Perak<br/>PH: +60 5-255 9887", coordinates: [101.090215, 4.595640] },
+  { id: 2, name: "<strong>Branch 2 Laser Battle IPOH</strong><br/>IPOH Parade<br/>Jalan Sultan, Abdul Jalil<br/>Ipoh Perak<br/>PH: +60 5-255 9887", coordinates: [103.741359, 1.492659] },
+];
 
-function TestPage({rowCounter, pagination}) {
+const godownLocations = [
+  { id: 3, name: "Godown 1", coordinates: [88.3629, 22.5744] },
+  { id: 4, name: "Godown 2", coordinates: [103.741359, 1.992659] },
+];
 
-  const [getAvailablePro, setAvailablePro] = useState('');
-  const [loadingPro, setLoadingPro] = useState(true);
+function TabbedMap() {
+  const [selectedLocation, setSelectedLocation] = useState(null); // For popup handling
+  const [activeTab, setActiveTab] = useState("branch"); // Track active tab
 
-  const fetchAvailablePro = ()=>{
-    axios.post(`${BASE_BENFED_URL}/f_stock_api`,
-    // axios.post(`https://benfed.in/benfed_godown/index.php/api/f_getvendor`,	
-    {
-      auth_key:"xxxxx",
-    }
-    // ,
-    // {
-    //     headers: {
-    //         Authorization: loginData.token,
-    //     },
-    // }
-    ).then(res => {
-  
-      
-      
-  
-      if(res.status == '200'){
-  
-      console.log(res.status, 'dddddddeeeddgggdddd');
-      setAvailablePro(res?.data?.value);
-      setLoadingPro(false);
-      
-      // if(res.data.suc > 0){
-      // // set here
-      // // setLoading(false);
-  
-      // } else {
-      // setAvailablePro([])
-      // // pageDataCheck = res.data.status;
-      // }
-  
-      }
-  
-    }) 
-  
-    }
+  const locations = activeTab === "branch" ? branchLocations : godownLocations;
 
-  const columns = [
-    {
-      title: 'District Name',
-      // district_name
-      dataIndex: 'district_name',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.district_name - b.district_name,
-      // showSorterTooltip: {
-      // target: 'full-header',
-      // },
-      // filters: [
-      //   {
-      //     text: 'Joe',
-      //     value: 'Joe',
-      //   },
-      //   {
-      //     text: 'Jim',
-      //     value: 'Jim',
-      //   },
-      //   {
-      //     text: 'Submenu',
-      //     value: 'Submenu',
-      //     children: [
-      //       {
-      //         text: 'Green',
-      //         value: 'Green',
-      //       },
-      //       {
-      //         text: 'Black',
-      //         value: 'Black',
-      //       },
-      //     ],
-      //   },
-      // ],
-      // specify the condition of filtering result
-      // here is that finding the name started with `value`
-      // onFilter: (value, record) => record.name.indexOf(value) === 0,
-      // sorter: (a, b) => a.name.length - b.name.length,
-      // sortDirections: ['descend'],
-    },
-    {
-      title: 'Company Name',
-      // comp_name
-      dataIndex: 'comp_name',
-      defaultSortOrder: 'descend',
-      sorter: (a, b) => a.comp_name - b.comp_name,
-    },
-    {
-      title: 'Product Details',
-      // prod_desc
-      dataIndex: 'prod_desc',
-      sorter: (a, b) => a.prod_desc - b.prod_desc,
-  
-      // filters: [
-      //   {
-      //     text: 'London',
-      //     value: 'London',
-      //   },
-      //   {
-      //     text: 'New York',
-      //     value: 'New York',
-      //   },
-      // ],
-      // onFilter: (value, record) => record.address.indexOf(value) === 0,
-    },
-    {
-      title: 'Stock Quantity',
-      // prod_desc
-      dataIndex: 'stock_qty',
-      sorter: (a, b) => a.stock_qty - b.stock_qty,
-  
-      // filters: [
-      //   {
-      //     text: 'London',
-      //     value: 'London',
-      //   },
-      //   {
-      //     text: 'New York',
-      //     value: 'New York',
-      //   },
-      // ],
-      // onFilter: (value, record) => record.address.indexOf(value) === 0,
-    },
-  ];
-
-
-  const onChange = (pagination, filters, sorter, extra) => {
-    console.log('params', pagination, filters, sorter, extra);
+  const handleMarkerClick = (location) => {
+    setSelectedLocation(location);
   };
 
-  useEffect(()=>{
-    fetchAvailablePro();
-
-    console.log(getAvailablePro, 'dddddfffffffddddgggdddd');
-    },[])
+  const handleTabChange = (key) => {
+    setActiveTab(key);
+    setSelectedLocation(null); // Clear selected location when tab changes
+  };
 
   return (
-    <>
-    {loadingPro ?(
-		<Loader align = {'center'} gap = {'middle'} size = {'large'} />
-		):(
-      <>
-
-      <Table
-    columns={columns}
-    dataSource={getAvailablePro.slice(0, rowCounter)}
-    onChange={onChange}
-    showSorterTooltip={{
-      target: 'sorter-icon',
-    }}
-    pagination={pagination} 
-  />
-      </>
-    
-    )}
-    
-
-</>
-
-  )
+    <div style={{ width: "100%", height: "100vh" }}>
+      <Tabs defaultActiveKey="branch" onChange={handleTabChange}>
+        <Tabs.TabPane tab="Branch Network" key="branch">
+          <Map
+            initialViewState={{
+              longitude: 101.090215,
+              latitude: 4.595640,
+              zoom: 5,
+            }}
+            style={{ width: "100%", height: "400px" }}
+            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapboxAccessToken={MAPBOX_TOKEN}
+          >
+            {locations.map((location) => (
+              <Marker
+                key={location.id}
+                longitude={location.coordinates[0]}
+                latitude={location.coordinates[1]}
+                anchor="bottom"
+              >
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleMarkerClick(location)}
+                >
+                  📍
+                </div>
+              </Marker>
+            ))}
+            {selectedLocation && (
+              <Popup
+                longitude={selectedLocation.coordinates[0]}
+                latitude={selectedLocation.coordinates[1]}
+                onClose={() => setSelectedLocation(null)}
+                closeOnClick={false}
+              >
+                {/* <div>{selectedLocation.name}</div> */}
+                <div
+                  dangerouslySetInnerHTML={{ __html: selectedLocation.name }}
+                />
+              </Popup>
+            )}
+          </Map>
+        </Tabs.TabPane>
+        <Tabs.TabPane tab="Godown Network" key="godown">
+          <Map
+            initialViewState={{
+              longitude: 88.3629,
+              latitude: 22.5744,
+              zoom: 5,
+            }}
+            style={{ width: "100%", height: "400px" }}
+            mapStyle="mapbox://styles/mapbox/streets-v11"
+            mapboxAccessToken={MAPBOX_TOKEN}
+          >
+            {locations.map((location) => (
+              <Marker
+                key={location.id}
+                longitude={location.coordinates[0]}
+                latitude={location.coordinates[1]}
+                anchor="bottom"
+              >
+                <div
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleMarkerClick(location)}
+                >
+                  📍
+                </div>
+              </Marker>
+            ))}
+            {selectedLocation && (
+              <Popup
+                longitude={selectedLocation.coordinates[0]}
+                latitude={selectedLocation.coordinates[1]}
+                onClose={() => setSelectedLocation(null)}
+                closeOnClick={false}
+              >
+                {/* <div>{selectedLocation.name}</div> */}
+                <div
+                  dangerouslySetInnerHTML={{ __html: selectedLocation.name }}
+                />
+              </Popup>
+            )}
+          </Map>
+        </Tabs.TabPane>
+      </Tabs>
+    </div>
+  );
 }
 
-export default TestPage
+export default TabbedMap;

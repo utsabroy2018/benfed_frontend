@@ -1,5 +1,4 @@
 import React from 'react'
-import QuickLinkRight from './QuickLinkRight'
 import Tenders from './Tenders'
 import { Link } from 'react-router-dom'
 
@@ -17,8 +16,28 @@ function RightSidebarGlobal() {
 			<h2>Notice / Tender</h2>
             <div className="listNotice">
 		    <div className="noticeScrollMainSub">
-			<marquee className="marq" height="350px" direction="up" scrollamount="4" loop="">
-            <Tenders wordCount={_tender_WordCount}/>
+			<marquee className="marq" height="370px" direction="up" scrollamount="4" loop="">
+            {/* <Tenders wordCount={_tender_WordCount}/> */}
+            <p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>59th Anniversary Celebration </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>59th Anniversary Celebration </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+    <p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>59th Anniversary Celebration </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>59th Anniversary Celebration </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
+		<p>MIC, Cooperation, Govt. of West Bengal visited BENFED </p>
             </marquee>
             </div>
             </div>

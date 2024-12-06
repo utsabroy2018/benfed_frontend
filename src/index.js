@@ -184,14 +184,16 @@ const router = createBrowserRouter([
   // },
 ]);
 
-root.render(
-  <React.StrictMode>
-    {/* <PrimeReactProvider> */}
-      <RouterProvider router={router} />
-      {/* </PrimeReactProvider> */}
-    {/* <App /> */}
-  </React.StrictMode>
-);
+// root.render(
+//   <React.StrictMode>
+//     {/* <PrimeReactProvider> */}
+//       <RouterProvider router={router} />
+//       {/* </PrimeReactProvider> */}
+//     {/* <App /> */}
+//   </React.StrictMode>
+// );
+
+root.render(<RouterProvider router={router} />);
 
 // If you want to start measuring performance in your app, pass a function
 // to log results (for example: reportWebVitals(console.log))

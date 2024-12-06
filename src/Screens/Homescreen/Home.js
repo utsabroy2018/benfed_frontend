@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useRef } from 'react'
 import BannerSlider from '../../Components/BannerSlider'
-import Anouncement from '../../Components/Anouncement'
+import Anouncement from '../../Components/Anouncement.js___'
 import StatisticBox from '../../Components/StatisticBox'
 import map_img from "../../Assets/images/map_real.png";
 import gallery_ben from "../../Assets/images/gallery_ben.png";
@@ -34,11 +34,13 @@ import award_b from "../../Assets/images/award_b.png";
 import award_c from "../../Assets/images/award_c.png";
 
 import HomeBlueCounter from '../../Components/HomeBlueCounter';
-import TabContentHome_Network from '../../Components/TabContentHome_Network';
+// import TabContentHome_Network from '../../Components/TabContentHome_Network';
 import TabContentHome_Graph from '../../Components/TabContentHome_Graph';
 import Slider from 'react-slick';
 import TestPage from '../TestPage/TestPage';
 import AvailableProduct from '../../Components/AvailableProduct';
+// import GodownNetwork from '../../Components/GodownNetwork';
+import TabContentHome_NetworkMap from '../../Components/TabContentHome_NetworkMap';
 
 
 function Home() {
@@ -61,49 +63,7 @@ function Home() {
 	};
 
 
-	const bottomThreeBox = [
-		{
-			title: 'Marketing Procurement',
-			description: 'The marketing division of BENFED is mainly engaged in procurement of paddy from different farmers of the state of West Bengal through various societies enlisted with BENFED.',
-			image: img_ben,
-			pageLink: '/marketing-procurement',
-		},
-		{
-			title: 'Engineering',
-			description: 'The Engineering Division of BENFED renders technical consultancy in execution of engineering projects sanctioned under different Govt. Schemes like RKVY, RIDF, State Plan, NCDC etc.',
-			image: img_2_ben,
-			pageLink: '/engineering',
-		},
-		{
-			title: 'Fertilizer',
-			description: 'This apex Marketing Society plays a pivotal role in supply and distribution of different chemical fertilizers at the lowest market price throughout the state of West Bengal.',
-			image: img_3_ben,
-			pageLink: '/fertilizer',
-		}
-	]
-
-	const counterBox = [
-		{
-			title: 'Established',
-			counter: '1995',
-			counterImg: ben_icon_a
-		},
-		{
-			title: 'Branch Offices',
-			counter: getCounterData.tot_branch,
-			counterImg: ben_icon_b
-		},
-		{
-			title: 'Registered Societies',
-			counter: getCounterData.tot_soc,
-			counterImg: ben_icon_c
-		},
-		{
-			title: 'Vendors',
-			counter: getCounterData.tot_vendor,
-			counterImg: ben_icon_d
-		}
-	]
+	
 
 	const fetchGallerydata = ()=>{
 	axios.post(`${BASE_URL}/wapi/gallimglist`,
@@ -158,16 +118,16 @@ function Home() {
 
 			if(res.status == '200'){
 
-			console.log(res.data.value[0] , 'ddddddddddddd');
+			console.log(res.data.value[0].tot_branch , 'ddddddddddddd');
 			setCounterData(res?.data?.value[0])
-			if(res.data.suc > 0){
-			// set here
-			setLoading(false);
+			// if(res.data.suc > 0){
+			// // set here
+			// setLoading(false);
 
-			} else {
-			setCounterData([])
-			// pageDataCheck = res.data.status;
-			}
+			// } else {
+			// setCounterData([])
+			// // pageDataCheck = res.data.status;
+			// }
 	
 			}
 	
@@ -212,6 +172,49 @@ function Home() {
 		}
 	
 	
+	const bottomThreeBox = [
+		{
+			title: 'Marketing Procurement',
+			description: 'The marketing division of BENFED is mainly engaged in procurement of paddy from different farmers of the state of West Bengal through various societies enlisted with BENFED.',
+			image: img_ben,
+			pageLink: '/marketing-procurement',
+		},
+		{
+			title: 'Engineering',
+			description: 'The Engineering Division of BENFED renders technical consultancy in execution of engineering projects sanctioned under different Govt. Schemes like RKVY, RIDF, State Plan, NCDC etc.',
+			image: img_2_ben,
+			pageLink: '/engineering',
+		},
+		{
+			title: 'Fertilizer',
+			description: 'This apex Marketing Society plays a pivotal role in supply and distribution of different chemical fertilizers at the lowest market price throughout the state of West Bengal.',
+			image: img_3_ben,
+			pageLink: '/fertilizer',
+		}
+	]
+
+	const counterBox = [
+		{
+			title: 'Established',
+			counter: '1995',
+			counterImg: ben_icon_a
+		},
+		{
+			title: 'Branch Offices',
+			counter: getCounterData.tot_branch,
+			counterImg: ben_icon_b
+		},
+		{
+			title: 'Registered Societies',
+			counter: getCounterData.tot_soc,
+			counterImg: ben_icon_c
+		},
+		{
+			title: 'Vendors',
+			counter: getCounterData.tot_vendor,
+			counterImg: ben_icon_d
+		}
+	]
 
 
 	useEffect(()=>{
@@ -291,6 +294,7 @@ function Home() {
 			<h2><i class="fa fa-gavel" aria-hidden="true"></i> Notice Board / Tender
 			</h2>
 			<ul>
+			<marquee className="marq" height="370px" direction="up" scrollamount="4" loop="">
 			<li>
 			<h3>MIC, Cooperation, Govt. of West Bengal visited BENFED</h3>
 			{/* <div class="img_box_main">
@@ -383,7 +387,7 @@ function Home() {
 			</div>	
 			</div> */}
 			</li>
-			
+			</marquee>
 			</ul>
 			<Link to="/tenders">View All</Link>
 		</div>
@@ -487,7 +491,9 @@ function Home() {
 
 
 
-	<TabContentHome_Network/>
+	{/* <TabContentHome_Network/> */}
+	<TabContentHome_NetworkMap/>
+	{/* <GodownNetwork/> */}
 
 
 <div className="faqSec">

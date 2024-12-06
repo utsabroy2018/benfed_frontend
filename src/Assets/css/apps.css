@@ -313,7 +313,12 @@ img {
   margin-top: 10px;}
 
   .listNotice{list-style-type:none; margin-bottom:20px; position: relative;width: 100%;height: 190px;overflow: hidden; display:block;}
-  .listNotice p{color:#6e7275; font-size:15px; line-height:24px; padding:13px 0; border-bottom:dashed #717577 1px;}
+  .listNotice p{color: #6e7275;
+    font-size: 14px;
+    line-height: 21px;
+    padding: 7px 0;
+    border-bottom: dashed #717577 1px;
+    margin: 0;}
   .listNotice p:last-child{border-bottom:none;}
   .listNotice p a{color:#6e7275; font-size:15px; text-decoration:none;}
   .listNotice p span {

@@ -9,7 +9,7 @@ import TopMenu from './TopMenu';
 import { BASE_URL } from '../routes/config';
 import {Detector, Online, Offline} from "react-detect-offline"
 import { useNavigate } from 'react-router-dom';
-import Sidebar from './sidebar';
+// import Sidebar from './sidebar';
 
 function HeaderTop() {
 const navigation = useNavigate();

@@ -1,0 +1,69 @@
+// import React from 'react'
+import React, { Suspense, useEffect, useState } from 'react';
+import { TabView, TabPanel } from 'primereact/tabview';
+import { Tabs } from "antd";
+import { TabsProps } from 'antd';
+import GodownNetwork from './GodownNetwork';
+import BranchNetwork from './BranchNetwork';
+// const Branch_Network = React.lazy(() => import('./BranchNetwork'));
+// const GodownNetwork = React.lazy(() => import('./GodownNetwork'));
+function TabContentHome_Network() {
+
+  const [branchProps, setBranchProps] = useState({}); // State to hold props for BranchNetwork
+
+    // const onChange = (key) => {
+    //   console.log(key);
+    // };
+
+    const onChange = (key) => {
+      setBranchProps({ type: 'branch', data: 'Branch-specific data' });
+      console.log('Tab key:', key);
+      console.log('typetypetype', branchProps);
+  
+      // Update props based on the active tab
+      if (key === '1') {
+        setBranchProps({ type: 'branch', data: 'Branch-specific data' });
+      } else if (key === '2') {
+        setBranchProps({ type: 'godown', data: 'Godown-specific data' });
+      }
+    };
+
+    useEffect(()=>{
+      setBranchProps({ type: 'branch', data: 'Branch-specific data' });
+    },[])
+
+
+
+    const _tender_WordCount= 20;
+    const _importantLinks_WordCount = 20;
+
+    const items = [
+      {
+        key: '1',
+        label: 'Branch Network',
+        children:<BranchNetwork {...branchProps}/>
+          // <Suspense fallback={<p>Loading....</p>}>  </Suspense>,
+      },
+      {
+        key: '2',
+        label: 'Godown Network',
+        children:<BranchNetwork {...branchProps}/>
+        // <BranchNetwork {...branchProps}/>
+        // <GodownNetwork/>
+        //     <Suspense fallback={<p>Loading....</p>}>
+        // </Suspense>,
+      },
+    ];
+    
+  return (
+  <>
+  
+  <div className="wrapper_sm branch_sec">
+  <Tabs className='tabContent' defaultActiveKey="1" items={items} onChange={onChange} />
+  </div>
+
+  </>
+  )
+}
+
+export default TabContentHome_Network

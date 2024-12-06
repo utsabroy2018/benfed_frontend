@@ -11,7 +11,7 @@ function AvailableProduct({ rowCounter, pagination, searchShow }) {
   // const [searchTextProduct, setSearchTextProduct] = useState(''); // State to hold search text
   const [filteredData, setFilteredData] = useState([]); // State for filtered data
 
-  searchShow = true;
+//  searchShow = true;
 
   const fetchAvailablePro = () => {
     axios
