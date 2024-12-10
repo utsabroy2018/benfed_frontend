@@ -42,7 +42,7 @@ function RightSidebarGlobal() {
             </div>
             </div>
 			{/* <a href="#">View All</a> */}
-      <Link to="/importantannouncement" className="view-all-link"> View All </Link>
+      <Link to="/tenders" className="view-all-link"> View All </Link>
 		</div>
     </div>
     </>
